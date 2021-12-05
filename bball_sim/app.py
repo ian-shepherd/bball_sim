@@ -119,21 +119,21 @@ buton1 = st.sidebar.button("Run")
 n = st.sidebar.number_input("number of simulations", min_value=100, max_value=1000000, value=1000)
 t = st.sidebar.number_input("seconds remaining", min_value=1, max_value=60, value=30)
 diff = st.sidebar.number_input("point differential", min_value=-10, max_value=0, value=-3)
-fouls1 = st.sidebar.number_input("fouls committed by winning team", min_value=0, max_value=10, value=5)
-fouls2 = st.sidebar.number_input("fouls committed by losing team", min_value=0, max_value=10, value=5)
+fouls1 = st.sidebar.number_input("fouls committed by leading team", min_value=0, max_value=10, value=5)
+fouls2 = st.sidebar.number_input("fouls committed by trailing team", min_value=0, max_value=10, value=5)
 ot_prob = st.sidebar.number_input("overtime win probability (%)", min_value=0, max_value=100, value=50) / 100
 
-# losing team players
+# trailing team players
 st.sidebar.write("")
-st.sidebar.write("Losing Team")
+st.sidebar.write("Trailing Team")
 player1 = st.sidebar.selectbox("player1", playerList, playerList.index("Kemba Walker\\walkeke02"))
 player2 = st.sidebar.selectbox("player2", playerList, playerList.index("Marcus Smart\\smartma01"))
 player3 = st.sidebar.selectbox("player3", playerList, playerList.index("Jaylen Brown\\brownja02"))
 player4 = st.sidebar.selectbox("player4", playerList, playerList.index("Jayson Tatum\\tatumja01"))
 player5 = st.sidebar.selectbox("player5", playerList, playerList.index("Grant Williams\\willigr01"))
 
-# winning team players
-st.sidebar.write("Winning Team")
+# leading team players
+st.sidebar.write("Leading Team")
 player6 = st.sidebar.selectbox("player6", playerList, playerList.index("Ben Simmons\\simmobe01"))
 player7 = st.sidebar.selectbox("player7", playerList, playerList.index("Seth Curry\\curryse01"))
 player8 = st.sidebar.selectbox("player8", playerList, playerList.index("Danny Green\\greenda02"))
@@ -159,7 +159,7 @@ with about:
     representative player of that position. The simulator assumes the outcome of every possession is a made shot, missed 
     shot with the potential of a rebound, or intentional foul. It will not account for turnovers or blocks. The time taken 
     by each possession is based on a normal distribution accounting for what is in the best interest of the team. For example, 
-    the simulation assumes the losing team will take an average of 4 seconds but if the game is tied, that team will try 
+    the simulation assumes the trailing team will take an average of 4 seconds but if the game is tied, that team will try 
     and maximize the amount of time taken so that mean is changed to the time remaining - 1.5 seconds. The shooter is also 
     determined by a composite rating that ranks players by number of that specific shot (free throw, 2 pt, 3 pt) taken per 
     game and their success rate. Players are then assigned a probability of being the selected shooter. Rebounds on the other 
